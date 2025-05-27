@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test-event', function () {
+    trigger_event('app.booted');
+    return 'Triggered app.booted event';
+});
+
+Route::get('/test-filter', function () {
+    $value = 'Original value. ';
+    $filtered = apply_filters('test.filter', $value);
+    return $filtered;
+});
