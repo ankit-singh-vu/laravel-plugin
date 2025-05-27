@@ -168,7 +168,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Plugins\Blog\BlogServiceProvider::class,
     ])->toArray(),
 
     /*

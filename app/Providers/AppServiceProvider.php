@@ -11,7 +11,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->register(\Plugins\Blog\BlogServiceProvider::class);
+        foreach (config('plugins.enabled', []) as $provider) {
+            if (class_exists($provider)) {
+                $this->app->register($provider);
+            }
+        }
     }
 
     /**
